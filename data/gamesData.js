@@ -57,3 +57,14 @@ export function getGameById(gameId) {
   return matchingGame;
 };
 
+
+export function getGamesByTitle(gameTitle) {
+
+  const filteredGames = games.filter((game) =>
+    game.title.toLowerCase().includes(gameTitle)
+  );
+
+  return filteredGames;
+};
+
+
