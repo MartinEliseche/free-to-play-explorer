@@ -1,26 +1,15 @@
 import { games, loadGames, getGamesByTitle } from "../data/gamesData.js";
 import { favoriteGamesIDs, isFavorite, addFavoriteGame, removeFavoriteGame } from "../data/favorites.js";
 
-
-document.querySelector(".js-search-btn").addEventListener("click", () => {
-  searchGame();
-});
-
-document.querySelector(".js-search-input").addEventListener("keydown", () => {
-  isEnterKey(event);
-});
-
-document.querySelector(".js-clean-btn").addEventListener("click", () => {
-  clearSearchInput();
+await Promise.all([
+  loadGames()
+]).then(() => {
+  renderGamesGrid();
+  initSearch();
 });
 
 
-
-await loadGames();
-renderGamesGrid();
-
-
-function renderGamesGrid(gameList = games) {
+export function renderGamesGrid(gameList = games) {
   let gamesGridHTML = "";
 
   gameList.forEach((game) => {
@@ -45,17 +34,27 @@ function renderGamesGrid(gameList = games) {
 
   document.querySelector(".js-games-grid").innerHTML = gamesGridHTML;
 
-  document.querySelectorAll(".js-game-card").forEach((gameCard) => {
-    gameCard.addEventListener("click", () => {
-      const { gameId } = gameCard.dataset;
-      console.log("clickeaste el juego de id: ", gameId);
-
-      window.location.href = `/pages/details.html?id=${gameId}`;
-    });
-  });
-
   goToGameDetails();
   renderFavoriteGames();
+}
+
+
+export function initSearch() {
+  const searchBtn = document.querySelector(".js-search-btn");
+  const searchInput = document.querySelector(".js-search-input");
+  const cleanBtn = document.querySelector(".js-clean-btn");
+
+  if (searchBtn) {
+    searchBtn.addEventListener("click", () => searchGame());
+  }
+
+  if (searchInput) {
+    searchInput.addEventListener("keydown", (event) => isEnterKey(event));
+  }
+
+  if (cleanBtn) {
+    cleanBtn.addEventListener("click", () => clearSearchInput());
+  }
 }
 
 
@@ -96,8 +95,6 @@ function goToGameDetails() {
   document.querySelectorAll(".js-game-card").forEach((gameCard) => {
     gameCard.addEventListener("click", () => {
       const { gameId } = gameCard.dataset;
-      console.log("clickeaste el juego de id: ", gameId);
-
       window.location.href = `/pages/details.html?id=${gameId}`;
     });
   });

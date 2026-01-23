@@ -183,7 +183,7 @@ header h1 span {
 
 .search-container {
     margin: 2rem auto;
-    margin-top: 0;
+    margin-top: -40px;
     display: flex;
     gap: 0.5rem;
     max-width: 600px; 
@@ -290,3 +290,45 @@ header h1 span {
 }
 
 /* ///////////////////  END MEDIA QUERIES ////////////// */
+
+.header-detail {
+  position: relative; /* Contenedor de referencia */
+  display: flex;
+  justify-content: center; /* Mantiene el H1 centrado */
+  align-items: center;
+  padding: 2rem 0;
+}
+
+.btn-nav-fav {
+  position: absolute;
+  right: 0; /* Lo empuja totalmente a la derecha del contenedor */
+  background: var(--card-bg);
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.btn-nav-fav:hover {
+  background: var(--accent);
+  color: var(--bg-color);
+  box-shadow: 0 0 15px rgba(56, 189, 248, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Ajuste para móviles para que no se encimen */
+@media (max-width: 600px) {
+  .header-detail {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .btn-nav-fav {
+    position: static; /* Vuelve al flujo normal en pantallas chicas */
+    width: 100%;
+    text-align: center;
+  }
+}
