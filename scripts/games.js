@@ -1,5 +1,5 @@
 import { games, loadGames, getGamesByTitle } from "../data/gamesData.js";
-import { favoriteGamesIDs, isFavorite, addFavoriteGame, removeFavoriteGame } from "../data/favorites.js";
+import { isFavorite, addFavoriteGame, removeFavoriteGame } from "../data/favorites.js";
 
 await Promise.all([
   loadGames()
@@ -39,7 +39,7 @@ export function renderGamesGrid(gameList = games) {
 }
 
 
-export function initSearch() {
+function initSearch() {
   const searchBtn = document.querySelector(".js-search-btn");
   const searchInput = document.querySelector(".js-search-input");
   const cleanBtn = document.querySelector(".js-clean-btn");

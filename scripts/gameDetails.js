@@ -4,8 +4,8 @@ const url = new URL(window.location.href);
 const gameId = Number(url.searchParams.get("id"));
 
 await loadGames();
-const gameData = getGameById(gameId);
 
+const gameData = getGameById(gameId);
 renderGameDetails();
 
 function renderGameDetails() {
