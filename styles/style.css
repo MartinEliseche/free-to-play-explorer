@@ -214,11 +214,59 @@ header h1 span {
     transition: 0.3s;
 }
 
+.clean-btn {
+    background: red;
+    color: var(--bg-color);
+    border: none;
+    padding: 0 1.5rem;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    display: none;
+}
+
+.display {
+  display: inline;
+}
+
 .search-btn:hover {
     filter: brightness(1.1);
 }
 
+.clean-btn:hover {
+    filter: brightness(1.6);
+}
+
 /* ///////////////  END SEARCH GAME SECTION  //////////////// */
+
+
+/* ///////////////  FAVOURITE GAMES SECTION  //////////////// */
+
+.game-card { position: relative; }
+
+.fav-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(15, 23, 42, 0.7); 
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  z-index: 10;
+  transition: 0.3s;
+}
+
+.fav-btn.is-fav {
+  color: #ff4b2b; 
+  transform: scale(1.1);
+}
+
+/* ///////////////  END FAVOURITE GAMES SECTION  //////////////// */
 
 
 /* /////////////////// MEDIA QUERIES ////////////// */
