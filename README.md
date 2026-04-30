@@ -30,4 +30,4 @@ FREE-TO-PLAY-EXPLORER/
 ├── scripts/            # Lógica de renderizado y eventos (games.js, gameDetails.js)
 ├── styles/             # Hojas de estilo CSS (style.css)
 ├── index.html          # Punto de entrada (Redirección)
-└── README.md
+└── README.md          (pequeño cambio)
